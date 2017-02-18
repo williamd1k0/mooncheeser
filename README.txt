@@ -1,0 +1,2 @@
+All files in this pack are under Creative Commons Attribution-ShareAlike 4.0 International License, for further legal rights do please access the official license under the
+follow link: https://creativecommons.org/licenses/by-sa/4.0/legalcode
