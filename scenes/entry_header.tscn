@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://scripts/entry_header.gd" type="Script" id=1]
+[ext_resource path="res://fonts/SUNN.otf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+
+font/size = 32
+font/use_mipmaps = true
+font/use_filter = false
+font/font = ExtResource( 2 )
+
+[node name="entry_header" type="HBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 196.0
+margin/bottom = 34.0
+custom_constants/separation = 50
+alignment = 1
+script/script = ExtResource( 1 )
+
+[node name="name" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 35.0
+margin/top = 0.0
+margin/right = 69.0
+margin/bottom = 34.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
+text = "Name"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = 10
+
+[node name="points" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 119.0
+margin/top = 0.0
+margin/right = 161.0
+margin/bottom = 34.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
+text = "Points"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = 10
+
+

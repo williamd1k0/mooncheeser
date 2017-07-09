@@ -1,18 +1,12 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://scripts/scoreboard.gd" type="Script" id=1]
 [ext_resource path="res://fonts/sunn - title.fnt" type="BitmapFont" id=2]
-[ext_resource path="res://fonts/SUNN.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://scenes/entry_header.tscn" type="PackedScene" id=3]
 [ext_resource path="res://sprites/background.png" type="Texture" id=4]
 [ext_resource path="res://scenes/star.scn" type="PackedScene" id=5]
 [ext_resource path="res://sprites/mous_sprite_sheet.png" type="Texture" id=6]
-
-[sub_resource type="DynamicFont" id=1]
-
-font/size = 32
-font/use_mipmaps = true
-font/use_filter = false
-font/font = ExtResource( 3 )
+[ext_resource path="res://fonts/sunn.fnt" type="BitmapFont" id=7]
 
 [sub_resource type="Animation" id=2]
 
@@ -21,15 +15,32 @@ length = 6.0
 loop = false
 step = 0.1
 tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 6 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 500.029, 470.244 ), Vector2( 502.547, 739.62 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "loading"
+length = 4.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
 tracks/0/path = NodePath(".:transform/rot")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 6 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0.0, 360.0 ] }
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:transform/pos")
-tracks/1/interp = 1
-tracks/1/imported = false
-tracks/1/keys = { "times":FloatArray( 0, 6 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 500.029, 470.244 ), Vector2( 502.547, 739.62 ) ] }
+tracks/0/keys = {
+"times": FloatArray( 0, 4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
 
 [node name="Control" type="Control"]
 
@@ -63,7 +74,6 @@ max_lines_visible = 10
 
 [node name="score_board" type="VBoxContainer" parent="."]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
@@ -74,555 +84,7 @@ margin/right = 606.0
 margin/bottom = 363.0
 alignment = 0
 
-[node name="entry_header" type="HBoxContainer" parent="score_board"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 196.0
-margin/bottom = 34.0
-custom_constants/separation = 50
-alignment = 1
-
-[node name="names" type="Label" parent="score_board/entry_header"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 35.0
-margin/top = 0.0
-margin/right = 69.0
-margin/bottom = 34.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
-text = "Name"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 10
-
-[node name="points" type="Label" parent="score_board/entry_header"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 119.0
-margin/top = 0.0
-margin/right = 161.0
-margin/bottom = 34.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
-text = "Points"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 10
-
-[node name="entry_header1" type="HBoxContainer" parent="score_board"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 38.0
-margin/right = 196.0
-margin/bottom = 72.0
-custom_constants/separation = 50
-alignment = 1
-
-[node name="names" type="Label" parent="score_board/entry_header1"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 35.0
-margin/top = 0.0
-margin/right = 69.0
-margin/bottom = 34.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
-text = "Name"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 10
-
-[node name="points" type="Label" parent="score_board/entry_header1"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 119.0
-margin/top = 0.0
-margin/right = 161.0
-margin/bottom = 34.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
-text = "Points"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 10
-
-[node name="entry_header2" type="HBoxContainer" parent="score_board"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 76.0
-margin/right = 196.0
-margin/bottom = 110.0
-custom_constants/separation = 50
-alignment = 1
-
-[node name="names" type="Label" parent="score_board/entry_header2"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 35.0
-margin/top = 0.0
-margin/right = 69.0
-margin/bottom = 34.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
-text = "Name"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 10
-
-[node name="points" type="Label" parent="score_board/entry_header2"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 119.0
-margin/top = 0.0
-margin/right = 161.0
-margin/bottom = 34.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
-text = "Points"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 10
-
-[node name="entry_header3" type="HBoxContainer" parent="score_board"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 114.0
-margin/right = 196.0
-margin/bottom = 148.0
-custom_constants/separation = 50
-alignment = 1
-
-[node name="names" type="Label" parent="score_board/entry_header3"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 35.0
-margin/top = 0.0
-margin/right = 69.0
-margin/bottom = 34.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
-text = "Name"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 10
-
-[node name="points" type="Label" parent="score_board/entry_header3"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 119.0
-margin/top = 0.0
-margin/right = 161.0
-margin/bottom = 34.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
-text = "Points"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 10
-
-[node name="entry_header4" type="HBoxContainer" parent="score_board"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 152.0
-margin/right = 196.0
-margin/bottom = 186.0
-custom_constants/separation = 50
-alignment = 1
-
-[node name="names" type="Label" parent="score_board/entry_header4"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 35.0
-margin/top = 0.0
-margin/right = 69.0
-margin/bottom = 34.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
-text = "Name"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 10
-
-[node name="points" type="Label" parent="score_board/entry_header4"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 119.0
-margin/top = 0.0
-margin/right = 161.0
-margin/bottom = 34.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
-text = "Points"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 10
-
-[node name="entry_header5" type="HBoxContainer" parent="score_board"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 190.0
-margin/right = 196.0
-margin/bottom = 224.0
-custom_constants/separation = 50
-alignment = 1
-
-[node name="names" type="Label" parent="score_board/entry_header5"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 35.0
-margin/top = 0.0
-margin/right = 69.0
-margin/bottom = 34.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
-text = "Name"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 10
-
-[node name="points" type="Label" parent="score_board/entry_header5"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 119.0
-margin/top = 0.0
-margin/right = 161.0
-margin/bottom = 34.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
-text = "Points"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 10
-
-[node name="entry_header6" type="HBoxContainer" parent="score_board"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 228.0
-margin/right = 196.0
-margin/bottom = 262.0
-custom_constants/separation = 50
-alignment = 1
-
-[node name="names" type="Label" parent="score_board/entry_header6"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 35.0
-margin/top = 0.0
-margin/right = 69.0
-margin/bottom = 34.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
-text = "Name"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 10
-
-[node name="points" type="Label" parent="score_board/entry_header6"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 119.0
-margin/top = 0.0
-margin/right = 161.0
-margin/bottom = 34.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
-text = "Points"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 10
-
-[node name="entry_header7" type="HBoxContainer" parent="score_board"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 266.0
-margin/right = 196.0
-margin/bottom = 300.0
-custom_constants/separation = 50
-alignment = 1
-
-[node name="names" type="Label" parent="score_board/entry_header7"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 35.0
-margin/top = 0.0
-margin/right = 69.0
-margin/bottom = 34.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
-text = "Name"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 10
-
-[node name="points" type="Label" parent="score_board/entry_header7"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 119.0
-margin/top = 0.0
-margin/right = 161.0
-margin/bottom = 34.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
-text = "Points"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 10
-
-[node name="entry_header8" type="HBoxContainer" parent="score_board"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 304.0
-margin/right = 196.0
-margin/bottom = 338.0
-custom_constants/separation = 50
-alignment = 1
-
-[node name="names" type="Label" parent="score_board/entry_header8"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 35.0
-margin/top = 0.0
-margin/right = 69.0
-margin/bottom = 34.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
-text = "Name"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 10
-
-[node name="points" type="Label" parent="score_board/entry_header8"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 119.0
-margin/top = 0.0
-margin/right = 161.0
-margin/bottom = 34.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
-text = "Points"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 10
-
-[node name="entry_header9" type="HBoxContainer" parent="score_board"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 342.0
-margin/right = 196.0
-margin/bottom = 376.0
-custom_constants/separation = 50
-alignment = 1
-
-[node name="names" type="Label" parent="score_board/entry_header9"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 35.0
-margin/top = 0.0
-margin/right = 69.0
-margin/bottom = 34.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
-text = "Name"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 10
-
-[node name="points" type="Label" parent="score_board/entry_header9"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 119.0
-margin/top = 0.0
-margin/right = 161.0
-margin/bottom = 34.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
-text = "Points"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 10
-
-[node name="entry_header10" type="HBoxContainer" parent="score_board"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 380.0
-margin/right = 196.0
-margin/bottom = 414.0
-custom_constants/separation = 50
-alignment = 1
-
-[node name="names" type="Label" parent="score_board/entry_header10"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 35.0
-margin/top = 0.0
-margin/right = 69.0
-margin/bottom = 34.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
-text = "Name"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 10
-
-[node name="points" type="Label" parent="score_board/entry_header10"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 119.0
-margin/top = 0.0
-margin/right = 161.0
-margin/bottom = 34.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
-text = "Points"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 10
+[node name="entry_header" parent="score_board" instance=ExtResource( 3 )]
 
 [node name="background" type="Sprite" parent="."]
 
@@ -631,7 +93,9 @@ transform/pos = Vector2( 512.018, 301.52 )
 transform/scale = Vector2( 1.00505, 0.593032 )
 z/z = -3
 texture = ExtResource( 4 )
-__meta__ = { "_edit_lock_":true }
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="star" parent="background" instance=ExtResource( 5 )]
 
@@ -711,6 +175,7 @@ transform/scale = Vector2( 1.97816, 3.35251 )
 [node name="moon_sprite" type="Sprite" parent="."]
 
 transform/pos = Vector2( 500.029, 470.244 )
+transform/rot = 245.269
 transform/scale = Vector2( 0.517149, 0.517149 )
 texture = ExtResource( 6 )
 region = true
@@ -725,6 +190,37 @@ anims/moon_credit = SubResource( 2 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
-autoplay = "moon_credit"
+autoplay = ""
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="moon_sprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/loading = SubResource( 3 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "loading"
+
+[node name="Error" type="Label" parent="."]
+
+visibility/visible = false
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 265.0
+margin/right = 1024.0
+margin/bottom = 369.0
+custom_fonts/font = ExtResource( 7 )
+text = "CONNECTION FAILED!
+Check your internet connection and try again."
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 
