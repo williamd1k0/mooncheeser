@@ -7,6 +7,8 @@ onready var highscore_node = get_node("/root/highscore")
 onready var high_score_text = get_node("score_board/high_score")
 onready var score_text = get_node("score_board/score")
 onready var achiev = get_node("unlock")
+onready var score_button = get_node("online")
+onready var score_name = get_node("online/LineEdit")
 
 func _ready():
 	var score = highscore_node.new_score
@@ -17,6 +19,7 @@ func _ready():
 	high_score_text.set_text("High Score: " + str(high_score))
 	score_text.set_text("Your Score: " + str(score))
 	if score > high_score:
+		highscore_node.write(score)
 		get_node("online").show()
 	
 func _on_retry_button_pressed():
@@ -24,4 +27,20 @@ func _on_retry_button_pressed():
 
 
 func _on_quit_button_pressed():
-	get_tree().quit()
+	get_tree().change_scene("res://scenes/main_menu.scn")
+
+func _on_online_pressed():
+	if score_name.get_text().strip_edges():
+		score_button.hide()
+		var data = {
+			'name': score_name.get_text().strip_edges(),
+			'points': highscore_node.high_score
+		}
+		ScoreServer.request_post('/new/', data)
+		ScoreServer.connect('request_complete', self, '_on_request_complete')
+
+func _on_request_complete(data, status):
+	if status == 200:
+		print('SCORE SAVED')
+		get_node("score_saved").show()
+
