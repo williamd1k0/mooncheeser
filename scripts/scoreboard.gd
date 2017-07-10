@@ -42,12 +42,12 @@ func process_score_server():
 	ScoreServer.request_get('/list/')
 	ScoreServer.connect('status_200', self, '_on_score_server_complete')
 	ScoreServer.connect('request_error', self, '_on_score_server_error')
+	ScoreServer.connect('request_timeout', self, '_on_score_server_error', [null, null])
 
 func _on_score_server_complete(data):
 	get_node("moon_sprite/moon_credit_animation").play("moon_credit")
 	get_node("score_board/entry_header").show()
 	add_score_entries(data['score_list'])
-
 
 func _on_score_server_error(data, status):
 	get_node("Error").show()

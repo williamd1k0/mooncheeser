@@ -25,7 +25,7 @@ tracks/0/keys = {
 "values": [ Vector2( 500.029, 470.244 ), Vector2( 502.547, 739.62 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 
 resource/name = "failed"
 length = 1.0
@@ -42,9 +42,8 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.296875, 0.296875, 0.296875, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 
-resource/name = "loading"
 length = 4.0
 loop = true
 step = 0.1
@@ -225,8 +224,8 @@ autoplay = ""
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/failed = SubResource( 3 )
-anims/loading = SubResource( 2 )
+anims/failed = SubResource( 2 )
+anims/loading = SubResource( 3 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]

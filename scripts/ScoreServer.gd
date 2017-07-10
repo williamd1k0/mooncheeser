@@ -2,6 +2,7 @@ extends Node
 
 signal request_complete(data, code)
 signal request_error(response, error)
+signal request_timeout
 
 # Status codes
 signal status_200(data)
@@ -29,7 +30,8 @@ enum {
 	STATUS_UNAUTHORIZED = 401
 }
 
-const CONFIG_PATH = 'res://.server.cfg'
+const CONFIG_PATH = 'res://develop.server.cfg'
+# const CONFIG_PATH = 'res://production.server.cfg'
 const HEADERS = [
     "User-Agent: Godot/2.1.3",
     "Accept: */*"
@@ -104,7 +106,9 @@ func parse_route(route):
 
 func _on_connection_timeout():
 	print('CONNECTION PROBLEM')
+	timer.stop()
 	http.cancel_request()
+	emit_signal("request_timeout")
 
 func _on_request_completed(result, response_code, headers, body):
 	print("REQUEST COMPLETED")
@@ -117,16 +121,18 @@ func _on_request_completed(result, response_code, headers, body):
 		return
 	if response_code >= 400 or result != HTTPRequest.RESULT_SUCCESS: 
 		emit_signal('request_error', body, response_code)
-	print(body.get_string_from_utf8())
 	
 	var response
-	if RESPONSE_TYPE == RESPONSE_UTF8_STR:
+	if RESPONSE_TYPE in [RESPONSE_UTF8_STR, RESPONSE_JSON_DICT]:
 		response = body.get_string_from_utf8()
+		if RESPONSE_TYPE == RESPONSE_JSON_DICT:
+			var response_json = Dictionary()
+			if response_json.parse_json(response) == 0:
+				response = response_json
+			else:
+				response = { "response": response }
 	elif RESPONSE_TYPE == RESPONSE_ASCII_STR:
 		response = body.get_string_from_ascii()
-	elif RESPONSE_TYPE == RESPONSE_JSON_DICT:
-		response = Dictionary()
-		response.parse_json(body.get_string_from_utf8())
 	print(response)
 	emit_signal('request_complete', response, response_code)
 	
