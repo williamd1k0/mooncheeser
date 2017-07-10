@@ -10,12 +10,10 @@ onready var sample_player_steps = get_node("player_body/mouse_player_steps")
 
 var dead = false
 var jumping = false
-var max_height = 40.0
 var points = 0
 var prev_mouse = false
 
-var height = 0.0
-const jump_force = 200.0
+var jump_force = 300.0
 
 func _ready():
 	if highscore_node.unlock == true:
@@ -28,24 +26,18 @@ func _ready():
 	pass
 
 func jump(time):
-	print(height)
-	print(jumping)
-
-	if height <= max_height:
-		if not jumping:
-			#body.apply_impulse(get_node("player_body/player_collider").get_pos(), Vector2 (0, -jump_force * time))
-			body.set_linear_velocity(Vector2 (0.0, -jump_force * (time * 100.0)))
-			animator.play("new_jump")
-			if not dead:
-				sample_player.play("jump_1")
-				sample_player_steps.stop_all()
-	else:
+	if not jumping:
+		body.set_linear_velocity(Vector2 (0.0, -jump_force * (time * 100.0)))
+		animator.play("new_jump")
+		if not dead:
+			sample_player.play("jump_1")
+			sample_player_steps.stop_all()
 		jumping = true
+
 
 func _fixed_process(delta):
 	var mouse_down = Input.is_action_pressed("mouse_press")
-	height = abs(body.get_pos().y)
-	if (mouse_down): #and not prev_mouse):
+	if (mouse_down) and not (prev_mouse):
 		jump(delta)
 	#prev_mouse = mouse_down
 	if animator.get_current_animation() == 'new_jump':
@@ -54,11 +46,12 @@ func _fixed_process(delta):
 			animator.set_speed(4.0)
 		else:
 			animator.set_speed(0.0)
+	prev_mouse = Input.is_action_pressed("mouse_press")
 #Signal from rigidbody
 func _on_player_body_body_enter( body ):
 
 	var fade = get_node("dead_fade")
-	if body == moon and jumping and not dead:
+	if body == moon and not dead:
 		jumping = false
 		animator.play("new_walk")
 		sample_player_steps.play("steps")
