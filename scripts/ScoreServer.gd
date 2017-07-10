@@ -3,6 +3,11 @@ extends Node
 signal request_complete(data, code)
 signal request_error(response, error)
 
+# Status codes
+signal status_200(data)
+signal status_400(data)
+signal status_401(data)
+
 enum {
 	RESPONSE_UTF8_STR
 	RESPONSE_ASCII_STR,
@@ -16,6 +21,12 @@ enum {
 	METHOD_PUT, 
 	METHOD_DELETE,
 	METHOD_OPTIONS
+}
+
+enum {
+	STATUS_OK = 200,
+	STATUS_BAD_REQUEST = 400,
+	STATUS_UNAUTHORIZED = 401
 }
 
 const CONFIG_PATH = 'res://.server.cfg'
@@ -97,12 +108,16 @@ func _on_connection_timeout():
 
 func _on_request_completed(result, response_code, headers, body):
 	print("REQUEST COMPLETED")
+	prints("RESULT:", result)
 	timer.stop()
 	print(response_code)
 	print(headers)
-	print(body.get_string_from_utf8())
+	if result == HTTPRequest.RESULT_CANT_CONNECT:
+		emit_signal('request_error', body, response_code)
+		return
 	if response_code >= 400 or result != HTTPRequest.RESULT_SUCCESS: 
 		emit_signal('request_error', body, response_code)
+	print(body.get_string_from_utf8())
 	
 	var response
 	if RESPONSE_TYPE == RESPONSE_UTF8_STR:
@@ -114,3 +129,10 @@ func _on_request_completed(result, response_code, headers, body):
 		response.parse_json(body.get_string_from_utf8())
 	print(response)
 	emit_signal('request_complete', response, response_code)
+	
+	if response_code == STATUS_OK:
+		emit_signal("status_200", response)
+	elif response_code == STATUS_BAD_REQUEST:
+		emit_signal("status_400", response)
+	elif response_code == STATUS_UNAUTHORIZED:
+		emit_signal("status_401", response)

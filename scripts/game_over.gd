@@ -37,10 +37,8 @@ func _on_online_pressed():
 			'points': highscore_node.high_score
 		}
 		ScoreServer.request_post('/new/', data)
-		ScoreServer.connect('request_complete', self, '_on_request_complete')
+		ScoreServer.connect('status_200', self, '_on_request_complete')
 
-func _on_request_complete(data, status):
-	if status == 200:
-		print('SCORE SAVED')
-		get_node("score_saved").show()
-
+func _on_request_complete(data):
+	print('SCORE SAVED')
+	get_node("score_saved").show()

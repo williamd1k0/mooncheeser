@@ -40,12 +40,15 @@ func add_score_entries(entries):
 
 func process_score_server():
 	ScoreServer.request_get('/list/')
-	ScoreServer.connect('request_complete', self, '_on_score_server_complete')
-	ScoreServer.connect('request_error', self, '_on_score_server_complete')
+	ScoreServer.connect('status_200', self, '_on_score_server_complete')
+	ScoreServer.connect('request_error', self, '_on_score_server_error')
 
-func _on_score_server_complete(data, status):
-	if status == 200:
-		get_node("moon_sprite/moon_credit_animation").play("moon_credit")
-		add_score_entries(data['score_list'])
-	else:
-		get_node("Error").show()
+func _on_score_server_complete(data):
+	get_node("moon_sprite/moon_credit_animation").play("moon_credit")
+	get_node("score_board/entry_header").show()
+	add_score_entries(data['score_list'])
+
+
+func _on_score_server_error(data, status):
+	get_node("Error").show()
+	get_node("moon_sprite/AnimationPlayer").play("failed")
