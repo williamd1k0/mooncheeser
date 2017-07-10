@@ -12,7 +12,6 @@ var can_write = false
 var can_read = false
 
 func _ready():
-	set_process(true)
 	if f.file_exists(path):
 		f.open(path, File.READ)
 		current_high = f.get_var()
@@ -26,13 +25,12 @@ func _ready():
 		f.open(path, File.WRITE)
 		f.store_var(high_score)
 		f.close()
-	pass
+
 func _process(delta):
 	if can_write:
 		write(new_score)
 	if can_read:
 		read()
-	pass
 	
 func write(score):
 	if score > current_high:

@@ -7,6 +7,8 @@ func _on_Button_pressed():
 func _on_credits_pressed():
 	get_tree().change_scene("res://scenes/credits.scn")
 
+func _on_score_pressed():
+	get_tree().change_scene("res://scenes/score_board.tscn")
 
 func _on_quit_pressed():
 	get_tree().set_pause(true)
