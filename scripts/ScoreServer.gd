@@ -30,8 +30,8 @@ enum {
 	STATUS_UNAUTHORIZED = 401
 }
 
-const CONFIG_PATH = 'res://develop.server.cfg'
-# const CONFIG_PATH = 'res://production.server.cfg'
+# const CONFIG_PATH = 'res://develop.server.cfg'
+const CONFIG_PATH = 'res://production.server.cfg'
 const HEADERS = [
     "User-Agent: Godot/2.1.3",
     "Accept: */*"
