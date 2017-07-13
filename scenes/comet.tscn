@@ -1,0 +1,454 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://scripts/comet.gd" type="Script" id=1]
+[ext_resource path="res://sprites/mous_sprite_sheet.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "core_animation"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("comet_body/comet_sprite/comet_core/core_tail:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 97.9656, -34.0026 ), Vector2( 135.663, -34.8594 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("comet_body/comet_sprite/comet_core/core_tail:visibility/opacity")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("comet_body/comet_sprite/comet_core/core_tail1:transform/pos")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 72.3295, -10.9568 ), Vector2( 88.1795, -10.5284 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("comet_body/comet_sprite/comet_core/core_tail1:visibility/opacity")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("comet_body/comet_sprite/comet_core/core_tail4:visibility/opacity")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = {
+"times": FloatArray( 0, 0.4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("comet_body/comet_sprite/comet_core/core_tail4:transform/pos")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = {
+"times": FloatArray( 0, 0.4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 108.245, -10.3424 ), Vector2( 126.236, -11.1991 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("comet_body/comet_sprite/comet_core/core_tail2:transform/pos")
+tracks/6/interp = 1
+tracks/6/imported = false
+tracks/6/keys = {
+"times": FloatArray( 0, 0.4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 94.9864, 11.7088 ), Vector2( 122.831, 10.852 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("comet_body/comet_sprite/comet_core/core_tail2:visibility/opacity")
+tracks/7/interp = 1
+tracks/7/imported = false
+tracks/7/keys = {
+"times": FloatArray( 0, 0.4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("comet_body/comet_sprite/comet_core/core_tail3:transform/pos")
+tracks/8/interp = 1
+tracks/8/imported = false
+tracks/8/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 98.2442, 34.1075 ), Vector2( 135.513, 34.5359 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("comet_body/comet_sprite/comet_core/core_tail3:visibility/opacity")
+tracks/9/interp = 1
+tracks/9/imported = false
+tracks/9/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
+[sub_resource type="CircleShape2D" id=4]
+
+custom_solver_bias = 0.0
+radius = 12.4461
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "outer_animation"
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("outer_tail:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 154.482, -44.694 ), Vector2( 217.816, -44.694 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("outer_tail:visibility/opacity")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("outer_tail1:transform/pos")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 171.115, -15.3279 ), Vector2( 217.782, -15.3279 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("outer_tail1:visibility/opacity")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("outer_tail3:transform/pos")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 149.017, 1.91607 ), Vector2( 169.017, 1.91607 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("outer_tail3:visibility/opacity")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("outer_tail2:transform/pos")
+tracks/6/interp = 1
+tracks/6/imported = false
+tracks/6/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 96.0752, 0.0325413 ), Vector2( 119.409, 0.0325413 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("outer_tail2:visibility/opacity")
+tracks/7/interp = 1
+tracks/7/imported = false
+tracks/7/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("outer_tail4:transform/pos")
+tracks/8/interp = 1
+tracks/8/imported = false
+tracks/8/keys = {
+"times": FloatArray( 0, 2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 131.591, 27.0643 ), Vector2( 198.258, 27.0643 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("outer_tail4:visibility/opacity")
+tracks/9/interp = 1
+tracks/9/imported = false
+tracks/9/keys = {
+"times": FloatArray( 0, 2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("outer_tail5:transform/pos")
+tracks/10/interp = 1
+tracks/10/imported = false
+tracks/10/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 158, 43.0319 ), Vector2( 188, 43.0319 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("outer_tail5:visibility/opacity")
+tracks/11/interp = 1
+tracks/11/imported = false
+tracks/11/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
+[node name="comet" type="Node2D"]
+
+z/z = -1
+script/script = ExtResource( 1 )
+
+[node name="core_animator" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/core_animation = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "core_animation"
+
+[node name="comet_body" type="RigidBody2D" parent="."]
+
+input/pickable = false
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 3.98708, -0.142402 )
+shapes/0/trigger = true
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+
+[node name="comet_shape" type="CollisionShape2D" parent="comet_body"]
+
+transform/pos = Vector2( 3.98708, -0.142402 )
+z/z = 3
+z/relative = false
+shape = SubResource( 4 )
+trigger = true
+_update_shape_index = 0
+
+[node name="comet_sprite" type="Sprite" parent="comet_body"]
+
+transform/scale = Vector2( 0.3, 0.3 )
+z/z = 2
+
+[node name="comet_outer" type="Sprite" parent="comet_body/comet_sprite"]
+
+visibility/behind_parent = true
+transform/pos = Vector2( 110.001, 0 )
+texture = ExtResource( 2 )
+modulate = Color( 0.266667, 0, 0.333333, 1 )
+region = true
+region_rect = Rect2( 690, 23, 313, 113 )
+
+[node name="outer_tail" type="Sprite" parent="comet_body/comet_sprite/comet_outer"]
+
+visibility/opacity = 0.0
+visibility/behind_parent = true
+transform/pos = Vector2( 217.816, -44.694 )
+texture = ExtResource( 2 )
+modulate = Color( 0.266667, 0, 0.333333, 1 )
+region = true
+region_rect = Rect2( 884, 161, 28, 18 )
+
+[node name="outer_tail1" type="Sprite" parent="comet_body/comet_sprite/comet_outer"]
+
+visibility/opacity = 0.0
+visibility/behind_parent = true
+transform/pos = Vector2( 217.782, -15.3279 )
+texture = ExtResource( 2 )
+modulate = Color( 0.266667, 0, 0.333333, 1 )
+region = true
+region_rect = Rect2( 880, 160, 36, 19 )
+
+[node name="outer_tail2" type="Sprite" parent="comet_body/comet_sprite/comet_outer"]
+
+visibility/opacity = 0.0
+visibility/behind_parent = true
+transform/pos = Vector2( 119.409, 0.0325413 )
+texture = ExtResource( 2 )
+modulate = Color( 0.266667, 0, 0.333333, 1 )
+region = true
+region_rect = Rect2( 881, 159, 33, 22 )
+
+[node name="outer_tail3" type="Sprite" parent="comet_body/comet_sprite/comet_outer"]
+
+visibility/opacity = 0.0
+visibility/behind_parent = true
+transform/pos = Vector2( 169.017, 1.91607 )
+texture = ExtResource( 2 )
+modulate = Color( 0.266667, 0, 0.333333, 1 )
+region = true
+region_rect = Rect2( 883, 163, 30, 14 )
+
+[node name="outer_tail4" type="Sprite" parent="comet_body/comet_sprite/comet_outer"]
+
+visibility/opacity = 0.0
+visibility/behind_parent = true
+transform/pos = Vector2( 198.258, 27.0643 )
+texture = ExtResource( 2 )
+modulate = Color( 0.266667, 0, 0.333333, 1 )
+region = true
+region_rect = Rect2( 883, 163, 31, 15 )
+
+[node name="outer_tail5" type="Sprite" parent="comet_body/comet_sprite/comet_outer"]
+
+visibility/opacity = 0.0
+visibility/behind_parent = true
+transform/pos = Vector2( 188, 43.0319 )
+transform/scale = Vector2( 1, 1 )
+texture = ExtResource( 2 )
+modulate = Color( 0.266667, 0, 0.333333, 1 )
+region = true
+region_rect = Rect2( 883, 162, 28, 16 )
+
+[node name="outer_animator" type="AnimationPlayer" parent="comet_body/comet_sprite/comet_outer"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/outer_animation = SubResource( 3 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "outer_animation"
+
+[node name="comet_core" type="Sprite" parent="comet_body/comet_sprite"]
+
+transform/pos = Vector2( 40.8203, 0 )
+texture = ExtResource( 2 )
+modulate = Color( 1, 0.4, 0.333333, 1 )
+region = true
+region_rect = Rect2( 694, 151, 155, 94 )
+
+[node name="core_tail" type="Sprite" parent="comet_body/comet_sprite/comet_core"]
+
+visibility/opacity = 0.0
+visibility/behind_parent = true
+transform/pos = Vector2( 135.663, -34.8594 )
+texture = ExtResource( 2 )
+modulate = Color( 1, 0.4, 0.333333, 1 )
+region = true
+region_rect = Rect2( 884, 163, 27, 15 )
+
+[node name="core_tail1" type="Sprite" parent="comet_body/comet_sprite/comet_core"]
+
+visibility/opacity = 0.0
+visibility/behind_parent = true
+transform/pos = Vector2( 88.1795, -10.5284 )
+texture = ExtResource( 2 )
+modulate = Color( 1, 0.4, 0.333333, 1 )
+region = true
+region_rect = Rect2( 884, 163, 27, 15 )
+
+[node name="core_tail2" type="Sprite" parent="comet_body/comet_sprite/comet_core"]
+
+visibility/opacity = 0.0
+visibility/behind_parent = true
+transform/pos = Vector2( 122.831, 10.852 )
+texture = ExtResource( 2 )
+modulate = Color( 1, 0.4, 0.333333, 1 )
+region = true
+region_rect = Rect2( 883, 164, 29, 13 )
+
+[node name="core_tail3" type="Sprite" parent="comet_body/comet_sprite/comet_core"]
+
+visibility/opacity = 0.0
+visibility/behind_parent = true
+transform/pos = Vector2( 135.513, 34.5359 )
+texture = ExtResource( 2 )
+modulate = Color( 1, 0.4, 0.333333, 1 )
+region = true
+region_rect = Rect2( 883, 164, 28, 13 )
+
+[node name="core_tail4" type="Sprite" parent="comet_body/comet_sprite/comet_core"]
+
+visibility/opacity = 0.0
+visibility/behind_parent = true
+transform/pos = Vector2( 126.236, -11.1991 )
+transform/scale = Vector2( 0.863652, 0.863652 )
+texture = ExtResource( 2 )
+modulate = Color( 1, 0.4, 0.333333, 1 )
+region = true
+region_rect = Rect2( 884, 163, 27, 15 )
+
+[node name="comet_visibility" type="VisibilityNotifier2D" parent="comet_body"]
+
+transform/pos = Vector2( 28.881, 1.66067 )
+transform/scale = Vector2( 6.51436, 2.30386 )
+rect = Rect2( -10, -10, 20, 20 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="finished" from="core_animator" to="." method="_on_core_animator_finished"]
+
+[connection signal="finished" from="comet_body/comet_sprite/comet_outer/outer_animator" to="." method="_on_outer_animator_finished"]
+
+[connection signal="exit_screen" from="comet_body/comet_visibility" to="." method="_on_VisibilityNotifier2D_exit_screen"]
+
+

@@ -23,11 +23,11 @@ func _ready():
 		get_node("online").show()
 	
 func _on_retry_button_pressed():
-	get_tree().change_scene("res://scenes/main_scene.scn")
+	get_tree().change_scene("res://scenes/game_scene.tscn")
 
 
 func _on_quit_button_pressed():
-	get_tree().change_scene("res://scenes/main_menu.scn")
+	get_tree().change_scene("res://scenes/main_menu.tscn")
 
 func _on_online_pressed():
 	if score_name.get_text().strip_edges():

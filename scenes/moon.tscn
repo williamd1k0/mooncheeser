@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://scripts/moon.gd" type="Script" id=1]
+[ext_resource path="res://sprites/mous_sprite_sheet.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 255.0
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "moon_rotation"
+length = 3.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("moon_sprite:transform/rot")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[node name="moon" type="StaticBody2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script/script = ExtResource( 1 )
+
+[node name="moon_sprite" type="Sprite" parent="."]
+
+transform/scale = Vector2( 1.38512, 1.38512 )
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 14, 638, 369, 370 )
+
+[node name="moon_coll" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="moon_timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = false
+autostart = true
+
+[node name="moon_animator" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/moon_rotation = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "moon_rotation"
+
+[connection signal="timeout" from="moon_timer" to="." method="_on_moon_timer_timeout"]
+
+

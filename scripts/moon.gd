@@ -5,6 +5,7 @@ onready var sprite = get_node("moon_sprite")
 onready var animator = get_node("moon_animator")
 
 var dificulty = 1.0
+
 func _ready():
 	pass
 

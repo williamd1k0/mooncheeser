@@ -1,0 +1,211 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://sprites/mous_sprite_sheet.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "clouds"
+length = 6.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("cloud_flat1:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 114.004, -32.6324 ), Vector2( 20.6461, -32.6324 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("cloud_flat:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -109.832, -38.9531 ), Vector2( -96.6002, -38.9531 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("cloud_flat7:transform/pos")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0, 3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -101.746, -5.87365 ), Vector2( -120.858, -5.87365 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("cloud_flat2:transform/pos")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0, 3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -66.1605, -137.343 ), Vector2( 69.1557, -137.941 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("cloud_flat5:transform/pos")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = {
+"times": FloatArray( 0, 3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -84.4436, 56.677 ), Vector2( -111.387, 56.0783 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("cloud_flat4:transform/pos")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = {
+"times": FloatArray( 0, 3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -124.803, 84.1761 ), Vector2( -87.082, 86.5711 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("cloud_flat6:transform/pos")
+tracks/6/interp = 1
+tracks/6/imported = false
+tracks/6/keys = {
+"times": FloatArray( 0, 3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 57.401, 58.5201 ), Vector2( 90.6424, 58.5201 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("cloud_flat3:transform/pos")
+tracks/7/interp = 1
+tracks/7/imported = false
+tracks/7/keys = {
+"times": FloatArray( 0, 3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 30.3379, 113.28 ), Vector2( 73.5516, 112.172 ) ]
+}
+
+[node name="little_planet" type="Node2D"]
+
+[node name="planet" type="Sprite" parent="."]
+
+z/z = -2
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 384, 402, 616, 618 )
+
+[node name="cloud_flat" type="Sprite" parent="planet"]
+
+transform/pos = Vector2( -98.5352, -38.9531 )
+transform/scale = Vector2( 0.603771, 0.720713 )
+z/z = 1
+z/relative = false
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 699, 291, 143, 48 )
+
+[node name="cloud1 2" type="Sprite" parent="planet"]
+
+transform/pos = Vector2( -100.037, 72.4521 )
+transform/rot = 90.0
+transform/scale = Vector2( 0.209932, 0.308857 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 698, 290, 144, 48 )
+
+[node name="cloud_flat1" type="Sprite" parent="planet"]
+
+transform/pos = Vector2( 34.2986, -32.6324 )
+z/z = 1
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 699, 290, 143, 47 )
+
+[node name="cloud_flat2" type="Sprite" parent="planet"]
+
+transform/pos = Vector2( 49.3672, -137.854 )
+z/z = 1
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 701, 287, 141, 51 )
+
+[node name="cloud_flat3" type="Sprite" parent="planet"]
+
+transform/pos = Vector2( 67.2321, 112.334 )
+z/z = 1
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 698, 290, 144, 48 )
+
+[node name="cloud_flat4" type="Sprite" parent="planet"]
+
+transform/pos = Vector2( -92.5982, 86.2209 )
+transform/scale = Vector2( 0.650143, 0.739093 )
+z/z = 1
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 699, 291, 142, 48 )
+
+[node name="cloud_flat5" type="Sprite" parent="planet"]
+
+transform/pos = Vector2( -107.447, 56.1658 )
+transform/scale = Vector2( 0.391709, 0.532314 )
+z/z = 1
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 700, 290, 143, 48 )
+
+[node name="cloud13" type="Sprite" parent="planet"]
+
+transform/pos = Vector2( 60.1555, 76.6182 )
+transform/rot = 90.0
+transform/scale = Vector2( 0.397528, 0.563168 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 699, 291, 143, 47 )
+
+[node name="cloud_flat6" type="Sprite" parent="planet"]
+
+transform/pos = Vector2( 85.7812, 58.5201 )
+z/z = 1
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 699, 290, 143, 48 )
+
+[node name="cloud_flat7" type="Sprite" parent="planet"]
+
+transform/pos = Vector2( -118.063, -5.87365 )
+transform/scale = Vector2( 0.603771, 0.720713 )
+z/z = 1
+z/relative = false
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 698, 290, 144, 48 )
+
+[node name="cloud14" type="Sprite" parent="planet"]
+
+transform/pos = Vector2( -123.56, -21.6407 )
+transform/rot = 90.0
+transform/scale = Vector2( 0.209932, 0.308857 )
+z/z = -1
+z/relative = false
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 693, 291, 153, 49 )
+
+[node name="cloud_animator" type="AnimationPlayer" parent="planet"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/clouds = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "clouds"
+
+

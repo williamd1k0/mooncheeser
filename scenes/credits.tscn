@@ -1,0 +1,184 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://scripts/credits.gd" type="Script" id=1]
+[ext_resource path="res://fonts/sunn - title.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://sprites/background.png" type="Texture" id=3]
+[ext_resource path="res://scenes/star.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/mous_sprite_sheet.png" type="Texture" id=5]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "moon_credit"
+length = 6.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/rot")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 6 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 6 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 500.029, 470.244 ), Vector2( 502.547, 739.62 ) ]
+}
+
+[node name="Control" type="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 30.0
+margin/bottom = 29.0
+script/script = ExtResource( 1 )
+
+[node name="credits" type="Node2D" parent="."]
+
+transform/pos = Vector2( 310.83, 78.4708 )
+transform/scale = Vector2( 0.497968, 0.497968 )
+
+[node name="credits_text" type="Label" parent="credits"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -6.0
+margin/top = -38.0
+margin/right = 830.0
+margin/bottom = 609.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 0.901961, 0.501961, 1 )
+text = "Game made by Henrique Campos and William Tumeo
+
+Font SUNN designed by Gatis Vilaks
+
+Background music inspired by:
+ Dave Brubeck Quartet - Take Five
+
+Special Thanks to: 
+Luan \"Almir\" Lemes
+Rebeca \"Kaleva\" Araújo"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = 10
+
+[node name="background" type="Sprite" parent="."]
+
+transform/pos = Vector2( 512.018, 301.52 )
+transform/scale = Vector2( 1.00505, 0.593032 )
+z/z = -3
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="star" parent="background" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -363.814, 250.489 )
+transform/scale = Vector2( 1.97816, 3.35251 )
+
+[node name="star1" parent="background" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 422.753, -386.787 )
+transform/scale = Vector2( 1.97816, 3.35251 )
+
+[node name="star2" parent="background" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -147.819, -340.282 )
+transform/scale = Vector2( 1.97816, 3.35251 )
+
+[node name="star3" parent="background" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -450.47, -173.519 )
+transform/scale = Vector2( 1.97816, 3.35251 )
+
+[node name="star4" parent="background" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -377.106, -281.656 )
+transform/scale = Vector2( 1.97816, 3.35251 )
+
+[node name="star5" parent="background" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 333.74, 109.472 )
+transform/scale = Vector2( 1.97816, 3.35251 )
+
+[node name="star6" parent="background" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 317.34, 369.723 )
+transform/scale = Vector2( 1.97816, 3.35251 )
+
+[node name="star7" parent="background" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 362.067, 192.854 )
+transform/scale = Vector2( 1.97816, 3.35251 )
+
+[node name="star8" parent="background" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 283.049, 172.64 )
+transform/scale = Vector2( 1.97816, 3.35251 )
+
+[node name="star9" parent="background" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 335.23, 233.281 )
+transform/scale = Vector2( 1.97816, 3.35251 )
+
+[node name="star10" parent="background" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 337.656, -244.839 )
+transform/scale = Vector2( 1.97816, 3.35251 )
+
+[node name="star11" parent="background" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -213.418, 430.364 )
+transform/scale = Vector2( 1.97816, 3.35251 )
+
+[node name="star12" parent="background" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 151.851, -373.129 )
+transform/scale = Vector2( 1.97816, 3.35251 )
+
+[node name="star13" parent="background" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -286.254, -377.599 )
+transform/scale = Vector2( 1.97816, 3.35251 )
+
+[node name="star14" parent="background" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -362.508, -29.4968 )
+transform/scale = Vector2( 1.97816, 3.35251 )
+
+[node name="moon_sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 512.029, 495.244 )
+transform/scale = Vector2( 0.517149, 0.517149 )
+texture = ExtResource( 5 )
+region = true
+region_rect = Rect2( 4, 643, 376, 376 )
+
+[node name="moon_credit_animation" type="AnimationPlayer" parent="moon_sprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/moon_credit = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "moon_credit"
+
+

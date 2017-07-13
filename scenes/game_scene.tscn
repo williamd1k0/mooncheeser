@@ -1,34 +1,12 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=8 format=1]
 
-[ext_resource path="res://scenes/moon.scn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/player.scn" type="PackedScene" id=2]
-[ext_resource path="res://scripts/spawner.gd" type="Script" id=3]
-[ext_resource path="res://scenes/little_planet.scn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/moon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/spawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/little_planet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sprites/background.png" type="Texture" id=5]
-[ext_resource path="res://scenes/star.scn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/score.scn" type="PackedScene" id=7]
-
-[sub_resource type="Animation" id=1]
-
-resource/name = "spawner_movement"
-length = 4.0
-loop = true
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("spawner_cheese:transform/pos")
-tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 2 ), "transitions":FloatArray( 1, 1 ), "values":[ Vector2( 0, 80 ), Vector2( 0, 115 ) ] }
-
-[sub_resource type="Animation" id=2]
-
-resource/name = "comet_spawn_move"
-length = 3.0
-loop = true
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("spawner_comet:transform/pos")
-tracks/0/interp = 0
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 1, 2 ), "transitions":FloatArray( 1, 1, 1 ), "values":[ Vector2( 195.016, -64.1279 ), Vector2( 194.86, -101.279 ), Vector2( 194.703, -138.43 ) ] }
+[ext_resource path="res://scenes/star.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/score.tscn" type="PackedScene" id=7]
 
 [node name="main_scene" type="Node2D"]
 
@@ -45,68 +23,11 @@ z/z = -1
 transform/pos = Vector2( 258.647, 156.256 )
 z/z = 1
 
-[node name="spawner" type="Node2D" parent="."]
-
-transform/pos = Vector2( 259.044, 258.267 )
-transform/scale = Vector2( 1.29901, 1.29901 )
-script/script = ExtResource( 3 )
-dificulty = 5
-
-[node name="spawner_hole" type="Position2D" parent="spawner"]
-
-transform/pos = Vector2( 0, 76.3408 )
-transform/rot = 180.0
-transform/scale = Vector2( 0.1, 0.1 )
-
-[node name="spawner_cheese" type="Position2D" parent="spawner"]
-
-transform/pos = Vector2( 0, 91.4994 )
-transform/rot = 180.0
-transform/scale = Vector2( 0.1, 0.1 )
-
-[node name="spawner_clock" type="Timer" parent="spawner"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = false
-autostart = true
-
-[node name="cheese_spawner_animator" type="AnimationPlayer" parent="spawner"]
-
-playback/process_mode = 1
-playback/default_blend_time = 0.0
-root/root = NodePath("..")
-anims/spawner_movement = SubResource( 1 )
-playback/active = true
-playback/speed = 1.0
-blend_times = [  ]
-autoplay = "spawner_movement"
-
-[node name="spawner_comet" type="Position2D" parent="spawner"]
-
-transform/pos = Vector2( 194.703, -138.43 )
-transform/scale = Vector2( 0.3, 0.3 )
-
-[node name="clock_comet" type="Timer" parent="spawner"]
-
-process_mode = 1
-wait_time = 5.0
-one_shot = false
-autostart = true
-
-[node name="comet_spawner_animator" type="AnimationPlayer" parent="spawner"]
-
-playback/process_mode = 1
-playback/default_blend_time = 0.0
-root/root = NodePath("..")
-anims/comet_spawn_move = SubResource( 2 )
-playback/active = true
-playback/speed = 1.0
-blend_times = [  ]
-autoplay = "comet_spawn_move"
+[node name="spawner" parent="." instance=ExtResource( 3 )]
 
 [node name="little_planet" parent="." instance=ExtResource( 4 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 104.348, 237.771 )
 transform/rot = 17.7
 transform/scale = Vector2( -0.327585, -0.327585 )
@@ -171,6 +92,7 @@ modulate = Color( 0, 0.509804, 0.639216, 1 )
 
 [node name="little_planet1" parent="." instance=ExtResource( 4 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 110.418, 66.5762 )
 transform/rot = 12.7
 transform/scale = Vector2( 0.146223, 0.146223 )
@@ -230,6 +152,7 @@ playback/speed = 0.5
 
 [node name="little_planet2" parent="." instance=ExtResource( 4 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 411.617, 97.853 )
 transform/rot = -25.8
 transform/scale = Vector2( 0.322517, 0.322517 )
@@ -296,11 +219,14 @@ playback/speed = 0.75
 
 [node name="background" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 256.26, 150.609 )
 transform/scale = Vector2( 0.505521, 0.298284 )
 z/z = -3
 texture = ExtResource( 5 )
-__meta__ = { "_edit_lock_":true, "_editor_collapsed":true }
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="star" parent="background" instance=ExtResource( 6 )]
 
@@ -411,10 +337,6 @@ transform/scale = Vector2( 1.97816, 3.35251 )
 
 transform/pos = Vector2( 216.276, -1.69851 )
 transform/scale = Vector2( 0.657506, 0.657506 )
-
-[connection signal="timeout" from="spawner/spawner_clock" to="spawner" method="_on_spawner_clock_timeout"]
-
-[connection signal="timeout" from="spawner/clock_comet" to="spawner" method="_on_clock_comet_timeout"]
 
 
 [editable path="little_planet"]

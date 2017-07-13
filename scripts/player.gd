@@ -81,4 +81,4 @@ func _on_player_body_body_enter( body ):
 	pass
 
 func _on_dead_fade_timeout():
-	get_tree().change_scene("res://scenes/game_over.scn")
+	get_tree().change_scene("res://scenes/game_over.tscn")

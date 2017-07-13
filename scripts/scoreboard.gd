@@ -24,7 +24,7 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("mouse_press"):
-		get_tree().change_scene("res://scenes/main_menu.scn")
+		get_tree().change_scene("res://scenes/main_menu.tscn")
 
 func debug_entries():
 	add_score_entries(TEST_ENTRIES)
